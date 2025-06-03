@@ -207,7 +207,7 @@ const Confirmation = () => {
       if (!policy) return;
 
       try {
-        const customerRes = await fetch('http://localhost:5000/api/customers/create', {
+        const customerRes = await fetch('https://interview-prepare-morz.onrender.com/api/customers/create', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(policy),
@@ -216,7 +216,7 @@ const Confirmation = () => {
         const savedCustomer = await customerRes.json();
         const customerId = savedCustomer._id;
 
-        const confirmationRes = await fetch('http://localhost:5000/api/confirmations/create', {
+        const confirmationRes = await fetch('https://interview-prepare-morz.onrender.com/api/confirmations/create', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
