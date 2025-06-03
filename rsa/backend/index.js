@@ -22,7 +22,7 @@ app.use(cors({
 app.use(express.json());
 
 const razorpay = new Razorpay({
-  key_id: "rzp_test_G8xxtyxOLZ2K4T",
+  key_id: "rzp_live_G8xxtyxOLZ2K4T",
   key_secret: "VhFMW4X2FrQEIOtqzc5IELgf",
   // key_id: process.env.RAZORPAY_KEY_ID,
   // key_secret: process.env.RAZORPAY_KEY_SECRET,
