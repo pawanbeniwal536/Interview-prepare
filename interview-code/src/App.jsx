@@ -15,7 +15,7 @@ import AdminPolicies from './pages/admin/AdminPolicies';
 // Auth Guard
 import ProtectedRoute from './components/ProtectedRoute';
 
-import Admincustomer from './pages/admin/Admincustomer';
+import Admincustomer from './pages/admin/AdminCustomer';
 import Help from './pages/admin/Help';
 
 function App() {
