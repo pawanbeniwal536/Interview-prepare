@@ -197,10 +197,15 @@ const Confirmation = () => {
   const navigate = useNavigate();
   const policy = location.state?.policy;
 
-  useEffect(() => {
-    if (!policy) navigate('/');
-    window.scrollTo(0, 0);
-  }, [policy, navigate]);
+useEffect(() => {
+  const policy = JSON.parse(localStorage.getItem('policy'));
+  if (policy) {
+    setPolicy(policy);
+  } else {
+    navigate('/');
+  }
+}, []);
+
 
   useEffect(() => {
     const saveData = async () => {
