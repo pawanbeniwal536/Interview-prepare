@@ -178,7 +178,7 @@ const Payment = () => {
     }
 
     try {
-      const orderResponse = await fetch('http://localhost:5000/create-order', {
+      const orderResponse = await fetch('https://interview-prepare-morz.onrender.com/create-order', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
