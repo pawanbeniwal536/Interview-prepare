@@ -15,7 +15,7 @@ const app = express();
 // ✅ Allow frontend domain (e.g., Netlify, Vercel)
 
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: "https://vehicle-insurance-qx28.onrender.com",
   credentials: true
 }));
 
