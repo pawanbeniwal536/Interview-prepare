@@ -81,7 +81,7 @@ const CustomerDetails = () => {
 
     try {
       // Send to backend
-      const res = await fetch('http://localhost:5000/api/customers/create', {
+      const res = await fetch('https://interview-prepare-morz.onrender.com/api/customers/create', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
