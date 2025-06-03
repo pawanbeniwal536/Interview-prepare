@@ -33,7 +33,7 @@
 //         console.log('✅ Customer Saved:', savedCustomer);
 
 //         // 2. Save Confirmation
-//         const confirmationRes = await fetch('http://localhost:5000/api/confirmations/create', {
+//         const confirmationRes = await fetch('https://interview-prepare-morz.onrender.com/api/confirmations/create', {
 //           method: 'POST',
 //           headers: { 'Content-Type': 'application/json' },
 //           body: JSON.stringify({
