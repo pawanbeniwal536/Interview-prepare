@@ -15,7 +15,7 @@ import AdminPolicies from './pages/admin/AdminPolicies';
 // Auth Guard
 import ProtectedRoute from './components/ProtectedRoute';
 
-import AdminCustomer from './pages/admin/Admincustomer';
+import Admincustomer from './pages/admin/Admincustomer';
 import Help from './pages/admin/Help';
 
 function App() {
@@ -49,7 +49,7 @@ function App() {
         path="/admin/customers" 
         element={
           <ProtectedRoute>
-            <AdminCustomer />
+            <Admincustomer />
           </ProtectedRoute>
         } 
       />
