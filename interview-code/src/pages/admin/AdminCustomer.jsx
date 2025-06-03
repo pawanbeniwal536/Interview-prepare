@@ -758,7 +758,7 @@ import Header from '../../components/Header';
 import { Pencil, Trash2, Eye, Search } from 'lucide-react';
 import axios from 'axios';
 
-const Customers = () => {
+const Admincustomer = () => {
   const [customers, setCustomers] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
@@ -1062,4 +1062,4 @@ const Customers = () => {
   );
 };
 
-export default Customers;
+export default Admincustomer;
