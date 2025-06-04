@@ -42,7 +42,7 @@ const Payment = () => {
       const orderData = await orderResponse.json();
 
       const options = {
-        key: 'rzp_test_Ksoaar4HIYpF0P', // Replace with test key during development
+        key: 'rzp_test_RhIH6rDK5qiYTS', // Replace with test key during development
         amount: orderData.amount,
         currency: orderData.currency,
         name: 'Ankit Enterprises',
