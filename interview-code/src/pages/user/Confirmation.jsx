@@ -102,7 +102,7 @@ const Confirmation = () => {
     doc.text('1-Year Nationwide Roadside Assistance (RSA) Service Plan', 20, 28);
 
     doc.setFont(undefined, 'bold');
-    doc.text('📄 Customer Details', 20, 38);
+    doc.text('Customer Details', 20, 38);
     doc.setFont(undefined, 'normal');
     doc.text(`Full Name: ${policy.customerName}`, 20, 46);
     doc.text(`Email ID: ${policy.email}`, 20, 62);
@@ -111,14 +111,14 @@ const Confirmation = () => {
     doc.text(`Valid Upto: ${expiryDate}`, 20, 86);
 
     doc.setFont(undefined, 'bold');
-    doc.text('🚘 Plan Overview', 20, 96);
+    doc.text('Plan Overview', 20, 96);
     doc.setFont(undefined, 'normal');
     doc.text('Our RSA plan ensures you’re never stranded due to vehicle issues.', 20, 104);
     doc.text('This 1-Year nationwide service covers emergency support, minor repairs,', 20, 110);
     doc.text('and towing assistance to get you moving again quickly and safely.', 20, 116);
 
     doc.setFont(undefined, 'bold');
-    doc.text('💰 Plan Pricing', 20, 126);
+    doc.text('Plan Pricing', 20, 126);
     doc.setFont(undefined, 'normal');
     doc.text(`Hatchback: ₹2,500/year ${policy.policyType === 'Hatchback' ? '☑' : '☐'}`, 20, 134);
     doc.text(`Sedan: ₹3,500/year ${policy.policyType === 'Sedan' ? '☑' : '☐'}`, 20, 142);
@@ -139,7 +139,7 @@ const Confirmation = () => {
     );
 
     doc.setFont(undefined, 'bold');
-    doc.text('🧰 Included Services', 20, 188);
+    doc.text('Included Services', 20, 188);
     doc.setFont(undefined, 'normal');
     doc.text(
       [
@@ -169,7 +169,7 @@ const Confirmation = () => {
     );
 
     doc.setFont(undefined, 'bold');
-    doc.text('⚠️ Terms & Conditions', 20, 254);
+    doc.text('Terms & Conditions', 20, 254);
     doc.setFont(undefined, 'normal');
     doc.setFontSize(10);
     doc.text(
