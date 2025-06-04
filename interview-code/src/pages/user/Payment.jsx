@@ -17,17 +17,13 @@ const Payment = () => {
     if (!currentPolicy.policyType || !currentPolicy.customerName) {
       navigate('/');
     }
-  }, [currentPolicy, navigate]);
 
-  const loadRazorpayScript = () => {
-    return new Promise((resolve) => {
-      const script = document.createElement('script');
-      script.src = 'https://checkout.razorpay.com/v1/checkout.js';
-      script.onload = () => resolve(true);
-      script.onerror = () => resolve(false);
-      document.body.appendChild(script);
-    });
-  };
+    // Load Razorpay script once on mount
+    const script = document.createElement('script');
+    script.src = 'https://checkout.razorpay.com/v1/checkout.js';
+    script.async = true;
+    document.body.appendChild(script);
+  }, [currentPolicy, navigate]);
 
   const handleBack = () => {
     navigate('/customer-details');
@@ -36,26 +32,17 @@ const Payment = () => {
   const handlePayment = async () => {
     setIsLoading(true);
 
-    const res = await loadRazorpayScript();
-    if (!res) {
-      alert('Failed to load Razorpay SDK.');
-      setIsLoading(false);
-      return;
-    }
-
     try {
       const orderResponse = await fetch('https://interview-prepare-morz.onrender.com/create-order', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ amount: totalAmount }),
       });
 
       const orderData = await orderResponse.json();
 
       const options = {
-        key: 'rzp_live_G8xxtyxOLZ2K4T', // ✅ Replace with test key for testing
+        key: 'rzp_live_G8xxtyxOLZ2K4T', // Replace with test key during development
         amount: orderData.amount,
         currency: orderData.currency,
         name: 'Ankit Enterprises',
@@ -64,19 +51,29 @@ const Payment = () => {
         handler: function (response) {
           const newPolicy = createPolicy();
           localStorage.setItem('policy', JSON.stringify(newPolicy));
-          window.location.href = '/confirmation'; // ✅ works on Netlify/Vercel
+
+          navigate('/confirmation', {
+            state: {
+              policy: newPolicy,
+              paymentStatus: 'success',
+              paymentId: response.razorpay_payment_id,
+            },
+          });
         },
         prefill: {
           name: currentPolicy.customerName,
           email: 'demo@example.com',
           contact: '9389916233',
         },
-        theme: {
-          color: '#528FF0',
-        },
+        theme: { color: '#528FF0' },
         modal: {
           ondismiss: function () {
-            alert('Payment cancelled.');
+            navigate('/confirmation', {
+              state: {
+                policy: currentPolicy,
+                paymentStatus: 'fail',
+              },
+            });
           },
         },
       };
